@@ -20,15 +20,13 @@
 # In[1]:
 
 
-# __SOLUTION__ 
-import math
-import pickle
-import numpy as np
+# import the necessary libraries
 import pandas as pd
-from scipy import stats
 import matplotlib.pyplot as plt
-# get_ipython().run_line_magic('matplotlib', 'inline')
-from statsmodels.stats import weightstats as stests
+import numpy as np
+import pickle
+
+# import any additional libraries needed.
 
 
 # ## Part 1: Combinatorics, Probability & Discrete Distributions
@@ -55,43 +53,25 @@ from statsmodels.stats import weightstats as stests
 # In[2]:
 
 
-# __SOLUTION__ 
-
-# Question 1: P(A and B)
-# We can use the conditional probability formula
-# P(B|A)   = P(A & B)/P(A)
-# P(A & B) = P(B|A)*P(A) 
-#          = 0.4*0.7
-ans1 = 0.28
-
-# Question 2: P(A|B) 
-#    = P(A and B)/P(B) 
-#    = 0.28/0.5 
-ans2 = 0.56
+#your answer here
+ans1 = None
+ans2 = None
 
 
 # ### b. Card Combinatorics
 # 
 # You have a standard deck of 52 cards.
 # 
-# 1. What is the probability of drawing a king or a queen? (`ans3`)
-# 2. How many possible 5-card combinations can be formed with this deck of 52 cards? (`ans4`)
+# 1. What is the probability of drawing a king or a queen? (`ans1`)
+# 2. How many possible 5-card combinations can be formed with this deck of 52 cards? (`ans2`)
 # 
 
 # In[3]:
 
 
-# __SOLUTION__ 
-
-# Question 1: P(King or Queen)
-#    = Number of Kings + Queens / Total Number of Cards 
-#    = 8/52 
-ans3 = 2/13
-
-# Question 2: Number of 5-card combinations 
-#    = Number of ways to choose 5 from 52 
-#    = 52!/(5!*47!) 
-ans4 = 2598960
+#your answer here
+ans3 = None
+ans4 = None
 
 
 # ### c. Discrete Probability Distributions
@@ -127,9 +107,8 @@ def probability_of_scoring_k(n, p, k):
 # In[5]:
 
 
-# __SOLUTION__ 
-ans5 = probability_of_scoring_k(22, 3/13, 8)
-ans5
+#your answer here
+ans5 = None
 
 
 # 2a. Use the function `probability_of_scoring` to calculate the probability of drawing $k$ points out of 22 draws.<br> _Hint_: Your final result should be in the form of a list or array.
@@ -137,9 +116,9 @@ ans5
 # In[6]:
 
 
-# __SOLUTION__ 
-k_values = range(22)
-probs = [probability_of_scoring_k(22, 3/13, i) for i in k_values]
+#your answer here
+k_values = None
+probs = None
 
 
 # 2b. Plot the results of 2a. to create the probability mass function.
@@ -148,24 +127,16 @@ probs = [probability_of_scoring_k(22, 3/13, i) for i in k_values]
 # In[7]:
 
 
-# __SOLUTION__ 
-plt.bar(k_values, probs)
-plt.title('PMF of Scores')
-plt.xlabel('k: number of points')
-plt.ylabel('Probability')
-# plt.show()
+# Your code here
 
 
-# 3. Based on the probability mass function, what type of distribution does the `probability_of_scoring` have?
+# 3. Based on the probability mass function, what type of distribution does the `probability_of_scoring` have? Save your answer as a string to the variable `dist_type`.
 
-# In[8]:
+# In[2]:
 
 
-# __SOLUTION__
-"""
-The distribution above is a binomial distribution
-"""
-dist_type = "Binomial Distribution"
+# Your answer written here
+dist_type = None
 
 
 # ## Part 2: Statistical Distributions
@@ -179,10 +150,9 @@ dist_type = "Binomial Distribution"
 # In[9]:
 
 
-# __SOLUTION__
 data = pd.read_csv('data/check_data.csv')
-desc_check_total = data.check_total.describe()
-desc_check_total
+# Your answer here
+desc_check_total = None
 
 
 # 2. What do the measures of central tendency (mean and median) indicate about the distribution of the check totals?
@@ -190,10 +160,9 @@ desc_check_total
 # In[10]:
 
 
-# __SOLUTION__ 
+# Your written response here:
 """
-The mean and the median are approximately the same at 22.02 
-which indicates that the distribution of checks is normal
+
 """
 
 
@@ -204,66 +173,54 @@ which indicates that the distribution of checks is normal
 # In[11]:
 
 
-# __SOLUTION__ 
-plt.title('Distribution of Check Totals')
-plt.xlabel('Amount')
-plt.ylabel('Frequency')
-plt.hist(data['check_total'], bins=80)
-# plt.show()
+# Your code here
 
 
+#  
+
+# 
 # For the following questions, you may use a [z-table](https://www.math.arizona.edu/~rsims/ma464/standardnormaltable.pdf).
-
+# 
 # 2. Calculate the 95% confidence interval around the mean check total as a **tuple** and set it to the variable `conf`. In a separate cell, interpret this interval correctly. 
 
 # In[12]:
 
 
-# __SOLUTION__ 
-# 95% confidence interval has z-score of 1.96 (read where p = 0.975)
-mean = data.check_total.mean()
-zscore = 1.96
-std = np.std(data['check_total'])
-conf = (mean - zscore*std, mean + zscore*std)
-print("The 95% confidence interval is {} with a mean of {}".format(conf, mean))
+# Your code here
+mean = 0
+zscore = None
+std = None
+conf = (None, None)
+print("The 95% confidence interval is {} with a mean of {}".format(conf,round(mean,2)))
 
 
 # In[13]:
 
 
-# __SOLUTION__
+# Your written interpretation of the confidence interval:
 """
-We can be 95% sure that the true value of the population mean for check totals 
-is between $16.58 and $27.46
+
 """
 
 
 # 3. Using a z-test and an $\alpha = 0.05$, is my $23 dollar check significantly **greater** than the mean in our sample? 
 # - Set the `ztest_results` variable to the results of the ztest function.
 # - Set your decision to the `significant` variable. 
-# - Then elaborate on why you made this decision.
+# - Then, in a separate cell, elaborate on how you know this.
 
 # In[14]:
 
 
-# __SOLUTION__
-ztest_results = stests.ztest(data['check_total'], value=23)
-significant = True # Set this to True or False
+# Your code here
+ztest_results = None
+significant = None # Set this to True or False
 
 
 # In[15]:
 
 
-# __SOLUTION__
-
+# Your written response here:
 """
-A check total with a value of 23 is significantly different than the mean in our sample.  
-
-We can tell this because the observed z-score of -15.78 is more extreme than the critical z-score of -1.64.
-
-OR
-
-We can tell this because the p value is well below the alpha value of 0.05.
 
 """
 
@@ -273,17 +230,15 @@ We can tell this because the p value is well below the alpha value of 0.05.
 # In[16]:
 
 
-# __SOLUTION__
+# Your written response here:
 """
-Solution: The Central Limit Theorem says that we can take repeated samples of the population, 
-and estimate population parameters by finding the average mean and standard deviation of the samples. 
-Sample means will also tend to a normal distribution.
+
 """
 
 
 # ## Part 3: Statistical Testing
 
-# ### Hypotheses and Errors
+# ### a. Hypotheses and Errors
 # 
 # This TexMex restaurant recently added queso to its menu.<br>The restaurant owners hope that customers ordering queso will end up spending a significantly different amount than non-queso-orders.<br> Let the average amount on queso customers' checks be $X_{Q}$.
 # 
@@ -298,11 +253,9 @@ Sample means will also tend to a normal distribution.
 # In[17]:
 
 
-# __SOLUTION__
+# Your written response here:
 """
-Type I: saying queso customers are different when they are the same
 
-Type II: saying queso customers are the same when they are different
 """
 
 
@@ -325,30 +278,35 @@ ax2.set_title('Sample of Queso Check Totals')
 ax2.set_xlabel('Amount')
 ax2.set_ylabel('Frequency')
 ax2.hist(queso, bins=20)
-# plt.show()
+# # # plt.show()
 
 
 # 3. Run a statistical test on the two samples to determine if you should reject or fail to reject the null hypothesis above. 
+# - Set the `queso_results` variable to the return of the ttest function.
 
 # In[19]:
 
 
-# __SOLUTION__ 
-queso_results = stats.ttest_ind(no_queso, queso)
+# Your code here
+queso_results = None
 
 
 # 4.  According to the results of the statistical test above
 # - Set the `reject` variable to your decision 
-# - Then elaborate on why you made this decision regarding your null hypothesis.
+# - In a separate cell, explain why you made that decision regarding your null hypothesis.
 
-# In[20]:
+# In[1]:
 
 
-# __SOLUTION__
-# Set this to True or False
-reject = True 
+reject = None # Set this to True or False
+
+
+# In[1]:
+
+
+# Your written response regarding the null hypothesis:
 """
-We reject the null hypothesis because the p-value is less than 0.05
+
 """
 
 
@@ -357,15 +315,9 @@ We reject the null hypothesis because the p-value is less than 0.05
 # In[21]:
 
 
-# __SOLUTION__
+# Your written response here:
 """
-Conditions for a two tailed t-test:
 
-data is continuous
-data follow a normal distribution
-variance of the two populations are equal
-two samples are independent
-both samples are random samples
 """
 
 
@@ -403,35 +355,10 @@ both samples are random samples
 # In[22]:
 
 
-# __SOLUTION__ 
-# Qustion 1: 
-# P(Small) = P(Small|Pet Store) + P(Small|Pound) 
-#          = 0.2*0.6 + 0.8*0.1 
-#          = 0.2
-ans6 = 0.2
-
-# Question 2:
-# P(Pet Store|Large)  = P(Large|Pet Store)*P(Pet Store) / P(Large) 
-#                     = 0.1*0.2 / (0.1*0.2 + 0.55*0.8)
-#                     = 0.02 / 0.46 = 0.04348
-ans7 = 0.02/0.46
-
-# Question 3:
-# P(Pet Store|Small) = 0.6
-# P(Pound|Small) = 0.4
-# More likely he went to the pet store.
-ans8 = "pet store" # pet store! (0.12 vs 0.08)
-
-
-# Question 4:
-# P(Pet Store|Large) = P(Large|Pet Store)*P(Pet Store) / P(Large)
-ans9_prior = "P(Store)"
-ans9_posterior = "P(Store | Large)"
-ans9_likelihood = "P(Large | Store)"
-
-
-# In[ ]:
-
-
-
+ans6 = None
+ans7 = None
+ans8 = "answer here"
+ans9_prior = "answer here"
+ans9_posterior = "answer here"
+ans9_likelihood = "answer here"
 

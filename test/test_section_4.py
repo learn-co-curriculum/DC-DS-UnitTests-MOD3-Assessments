@@ -18,17 +18,17 @@ def test_ans7():
     assert ans7 == 0.043478260869565216, "Not correct"
     
 @pytest.mark.section4    
-def test_ans8():
-    assert ans8 == "Pet Store" | "pet store", "Not correct"
+def test_ans8(eight):
+    assert ans8 in eight, "Not correct"
 
 @pytest.mark.section4
-def test_ans9_prior():
-    assert ans9_prior == "P(Store)", "Not correct"
+def test_ans9_prior(nine1):
+    assert ans9_prior == nine1, "Not correct"
 
 @pytest.mark.section4
-def test_ans9_posterior():
-    assert ans9_posterior == "P(Store | Large)", "Not correct" 
+def test_ans9_posterior(nine2):
+    assert ans9_posterior == nine2, "Not correct" 
 
 @pytest.mark.section4
-def test_ans9_likelihood():
-    assert ans9_likelihood == "P(Large | Store)", "Not correct"
+def test_ans9_likelihood(nine3):
+    assert ans9_likelihood == nine3, "Not correct"
