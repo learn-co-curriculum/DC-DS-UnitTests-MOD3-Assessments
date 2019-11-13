@@ -15,11 +15,11 @@ def test_ans6():
     
 @pytest.mark.section4
 def test_ans7():
-    assert ans7 == 0.043478260869565216, "Not correct"
+    assert round(ans7, 2) == 0.04, "Not correct"
     
 @pytest.mark.section4    
-def test_ans8(eight):
-    assert ans8 in eight, "Not correct"
+def test_ans8(pet):
+    assert pet in ans8.lower(), "Not correct"
 
 @pytest.mark.section4
 def test_ans9_prior(nine1):

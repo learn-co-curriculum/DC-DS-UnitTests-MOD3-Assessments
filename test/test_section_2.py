@@ -4,7 +4,8 @@ import pandas
 from utils import flatten
 from mod3_assessment import (
     data,
-    desc_check_total,
+    mean,
+    median,
     zscore,
     std,
     conf,
@@ -20,8 +21,8 @@ from mod3_assessment import (
     
 @pytest.mark.section2
 def test_desc_total_check():
-    assert desc_check_total[1] == 22.020173558206388, "Mean is not correctly calculated"
-    assert desc_check_total[5] == 22.019760811774503, "Median is not corectly calculated"
+    assert round(mean, 2) == 22.02, "Mean is not correctly calculated"
+    assert round(median, 2) == 22.02, "Median is not corectly calculated"
     
     
 # Question a2: What do the measures of central tendency (mean and median) indicate about the distribution of the check totals?
